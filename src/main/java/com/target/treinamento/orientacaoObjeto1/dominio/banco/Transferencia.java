@@ -46,16 +46,16 @@ public class Transferencia {
 		this.contaDestino = contaDestino;
 	}
 
-	public void transferir() {
-		if getContaOrigem();
-		
-	}else {
-		
-	}
+	
 
 	public void exibirDados() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void transferir() {
+		
+		
 	}
 }
 

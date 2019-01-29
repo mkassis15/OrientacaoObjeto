@@ -1,19 +1,35 @@
+import com.target.treinamento.orientacaoObjeto1.dominio.banco.Conta;
+import com.target.treinamento.orientacaoObjeto1.dominio.banco.Pessoa;
+import com.target.treinamento.orientacaoObjeto1.dominio.banco.Transferencia;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		Empregado e = new Empregado();
-		e.setNome("Pedro");
-		e.setCargo("Gerente");
-		e.setSalario(1000.0);
+		Principal principal = new Principal();
+		principal.inicializa();
 		
-		Empregado emp = new Empregado();
-		emp.setNome("Altair");
-		emp.setCargo("Mestre");
-		emp.setSalario(2000.0);
 		
-		System.out.println("o salario de" + e.getNome()+"é" e.getSalario());
-		System.out.println("o salario de" + emp.getNome()+"é" emp.getSalario();
 	}
+
+	private void inicializa() {
+		
+		Conta contaOrigem = new Conta();
+		contaOrigem.setPessoa(new Pessoa("Alfredo", "654654"));
+		contaOrigem.setSaldo(0.0);
+		contaOrigem.setNumero(1716);
+		
+		Conta contaDestino = new Conta();
+		contaDestino.setPessoa(new Pessoa("João", "12545544"));
+		contaDestino.setSaldo(1000.0);
+		contaDestino.setNumero(2214);
+		
+		
+		Transferencia novaTransferencia = new Transferencia(1, contaOrigem, contaDestino, 100.0, "TEF");
+		novaTransferencia.transferir();
+		
+		novaTransferencia.exibirDados();
+		
+	}
+	
 }
