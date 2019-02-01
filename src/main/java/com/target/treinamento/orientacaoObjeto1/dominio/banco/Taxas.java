@@ -1,10 +1,10 @@
 package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 
 public enum Taxas {
-	VISA(1, "Visa", 0.05, 0.001, new Visa()),
-	MASTER_CARD(2, "Master Card", 0.1, 0.002, new Master()), 
-	ELO(3, "Elo", 0.4, 0.006, new Elo()),
-	BANRISUL(4, "Banrisul", 0.8, 0.003, new Banrisul());
+	VISA(1, "Visa", 0.05, 0.001, new Visa()), 
+	MASTER(2, "Master Card", 0.1, 0.002, new Master()),
+	BANRISUL(1,"Banrisul", 0.8, 0.003, new Banrisul()),
+	ELO(2, "Elo", 0.4, 0.006, new Elo());
 
 	private Integer codigo;
 	private String nome;
@@ -44,9 +44,9 @@ public enum Taxas {
 		return codigo;
 	}
 
-	public static Taxas valueOf(Integer codigo) {
+	public static Taxas getEnum(String nome) {
 		for (Taxas taxa : Taxas.values()) {
-			if (codigo.equals(taxa.getCodigo())) {
+			if (nome.equalsIgnoreCase(taxa.getNome())) {
 				return taxa;
 			}
 		}
