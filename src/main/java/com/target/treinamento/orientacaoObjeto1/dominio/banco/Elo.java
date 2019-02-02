@@ -10,6 +10,11 @@ public class Elo implements Cartao{
 		System.out.println("Utilizando o cartão Elo pagando no credito R$"+valor );		
 	}
 
+	public void nome(String nome) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 	

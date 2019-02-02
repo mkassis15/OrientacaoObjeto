@@ -5,5 +5,7 @@ public interface Cartao {
 	void debito(Double valor);
 
 	void credito(Double valor);
+	
+	void nome(String nome);
 
 }

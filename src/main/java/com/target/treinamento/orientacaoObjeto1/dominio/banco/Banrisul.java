@@ -10,6 +10,11 @@ public class Banrisul implements Cartao {
 		System.out.println("Utilizando o cartão Banrisul pagando no credito R$"+valor );		
 	}
 
+	public void nome(String nome) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }
