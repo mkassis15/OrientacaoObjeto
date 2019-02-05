@@ -1,6 +1,11 @@
 package com.target.treinamento.orientacaoObjeto1.dominio;
 
 public class Aluno extends Pessoa {
+	public Aluno(String nome, String rg) {
+		super(nome, rg);
+		// TODO Auto-generated constructor stub
+	}
+
 	private String cpf;
 	private String rg;
 	private String nome;

@@ -1,15 +1,20 @@
 package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
@@ -50,30 +55,57 @@ public class Principal {
 		}
 
 		processaTransacoes(transacaoes);
-
 	}
 
-	private void processaTransacoes(List<Transacao> transacaoes) {
+	private void processaTransacoes(List<Transacao> transacaoes) throws IOException {
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\aluno06sala04\\Downloads\\transacoes.txt", false));
+
+		NumberFormat format = DecimalFormat.getInstance(Locale.US);
+		format.setMinimumFractionDigits(2);
+		format.setMaximumFractionDigits(2);
+
+		// interação sobre todas as transações
 		for (Transacao transacao : transacaoes) {
+
+			// Utilizo o valueOf para obter o Enum, baseado no nome da bandeira
 			Taxas meuEnum = Taxas.valueOf(transacao.getBandeira().toUpperCase());
 
+			// Obtenho o cartão selecionado baseado na informação do arquivo
 			Cartao cartao = meuEnum.getCartao();
 
+			Double novoValor = 0.0;
+
+			// Verifico qual a operação o usuário selecionou
 			if (transacao.getOperacao() == 1) {
 
-				cartao.debito(transacao.getValor());
+				// Executo a chamada da interface débito, passando o valor
+				novoValor = cartao.debito(transacao.getValor());
 
-			} else if (transacao.getValor() == 2) {
+			} else if (transacao.getOperacao() == 2) {
 
-				cartao.credito(transacao.getValor());
+				// Executo a chamada da interface crédito, passando o valor
+				novoValor = cartao.credito(transacao.getValor());
+
 			}
 
+			writer.append(meuEnum.getNome())
+					.append(";")
+					.append(transacao.getOperacao().toString())
+					.append(";")
+					.append(format.format(novoValor))
+					.append(";")
+					.append(transacao.getNomeCliente());
+
+			writer.newLine();
 		}
 
+		writer.flush();
+		writer.close();
 	}
 
 	private List<String> lerArquivo() throws IOException {
-		InputStream inputStream = new FileInputStream("C:\\Users\\aluno06sala04\\Downloads\\transacoes.txt");
+		InputStream inputStream = new FileInputStream("C:/Users/instrutor/transacoes.txt");
 
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 

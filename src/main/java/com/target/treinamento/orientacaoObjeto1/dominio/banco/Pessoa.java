@@ -34,13 +34,34 @@ public class Pessoa {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof Pessoa) {
-			Pessoa pessoaParametro = (Pessoa) obj;
-			return this.rg.equals(pessoaParametro.getRg()) && this.nome.equals(pessoaParametro.getNome());
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
+		return result;
+	}
 
-		}
-		return super.equals(obj);
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa other = (Pessoa) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (rg == null) {
+			if (other.rg != null)
+				return false;
+		} else if (!rg.equals(other.rg))
+			return false;
+		return true;
 	}
 
 	@Override

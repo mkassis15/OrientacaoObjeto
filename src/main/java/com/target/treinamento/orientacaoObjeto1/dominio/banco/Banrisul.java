@@ -2,17 +2,18 @@ package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 
 public class Banrisul implements Cartao {
 
-	public void debito(Double valor) {
-		System.out.println("Utilizando o cartão Banrisul pagando no débito R$"+valor );		
-	}
+	public Double debito(Double valor) {
 
-	public void credito(Double valor) {
-		System.out.println("Utilizando o cartão Banrisul pagando no credito R$"+valor );		
-	}
-
-	public void nome(String nome) {
-		// TODO Auto-generated method stub
+		System.out.println("Utilizando o cartão Banrisul pagando no débito R$"+valor );
 		
+		return valor - (Taxas.BANRISUL.getValorTaxa() * valor) - (valor * Taxas.BANRISUL.getCofins());		
+	}
+
+	public Double credito(Double valor) {
+
+		System.out.println("Utilizando o cartão Banrisul pagando no débito R$"+valor );
+		
+		return valor - (Taxas.BANRISUL.getValorTaxa() * valor) - (valor * Taxas.BANRISUL.getCofins());
 	}
 
 	
