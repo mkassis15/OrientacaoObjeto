@@ -65,7 +65,6 @@ public class Principal {
 		num.add(new Integer(1));
 		num.add(new Integer(2));
 
-		
 		List<Integer> num2 = new ArrayList<Integer>(num);
 		System.out.println(num2);
 
@@ -73,25 +72,20 @@ public class Principal {
 
 		Collections.sort(num);
 		System.out.println(num);
-		
-		
+
 		List<Integer> linkedlist = new LinkedList<Integer>(num2);
 		//Iterator<Integer> iterator = LinkedList.iterator();
-		
-		//while (iterator.hashCode()) {
-			//Integer elemento = iterator.next();
-			
-		}
-		
 
-		
-		
+		//while (iterator.hashCode()) {
+		// Integer elemento = iterator.next();
 
 	}
+	
+	
+	
+	
+	
+	
+	
 
-
-
-
-
-
-
+}
