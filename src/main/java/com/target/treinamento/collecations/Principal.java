@@ -65,9 +65,14 @@ public class Principal {
 		num.add(new Integer(1));
 		num.add(new Integer(2));
 
+		
+		
+		
 		List<Integer> num2 = new ArrayList<Integer>(num);
 		System.out.println(num2);
 
+		
+		
 		System.out.println(num.get(10));
 
 		Collections.sort(num);
