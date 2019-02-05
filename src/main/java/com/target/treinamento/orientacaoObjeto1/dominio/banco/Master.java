@@ -1,5 +1,6 @@
 package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 
+
 import org.omg.CORBA.portable.ValueOutputStream;
 
 public class Master implements Cartao { //OPÇÃO

@@ -3,6 +3,7 @@ package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import com.target.treinamento.orientacaoObjeto1.dominio.banco.Banrisul;
 import com.target.treinamento.orientacaoObjeto1.dominio.banco.Master;
 import com.target.treinamento.orientacaoObjeto1.dominio.banco.Visa;
@@ -28,7 +29,5 @@ public class Pagamento {
 
 	private Integer lerEntrada() {
 		return new Scanner(System.in).nextInt();
-
-	}
-
+}
 }

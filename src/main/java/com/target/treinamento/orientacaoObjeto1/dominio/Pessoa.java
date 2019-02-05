@@ -2,6 +2,7 @@ package com.target.treinamento.orientacaoObjeto1.dominio;
 
 public class Pessoa {
 
+
 	private String nome;
 	private String rg;
 
@@ -70,4 +71,5 @@ public class Pessoa {
 		return novaPessoa;
 
 	}
+
 }

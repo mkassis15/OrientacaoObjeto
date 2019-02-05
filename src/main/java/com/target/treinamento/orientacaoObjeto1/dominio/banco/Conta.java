@@ -53,7 +53,7 @@ public class Conta {
 		Conta novaConta = new Conta();
 		novaConta.setNumero(Integer.valueOf(this.numero));
 		novaConta.setSaldo(Double.valueOf(this.saldo));
-		novaConta.setPessoa((Pessoa) pessoa.clone());
+		
 
 		return novaConta;
 	}
