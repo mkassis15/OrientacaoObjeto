@@ -1,6 +1,5 @@
 package com.target.treinamento.orientacaoObjeto1.dominio.banco;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -18,6 +17,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import org.omg.CORBA.portable.ValueOutputStream;
 import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 
 import com.target.treinamento.orientacaoObjeto1.dominio.banco.Cartao;
@@ -60,12 +60,16 @@ public class Principal {
 
 	private void processaTransacoes(List<Transacao> transacaoes) throws IOException {
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\aluno06sala04\\Downloads\\transacoes.txt", false));
+		BufferedWriter writer = new BufferedWriter(
+				new FileWriter("C:\\Users\\aluno06sala04\\Downloads\\transacoes.txt", false));
 
 		NumberFormat format = DecimalFormat.getInstance(Locale.US);
 		format.setMinimumFractionDigits(2);
 		format.setMaximumFractionDigits(2);
 
+		double somatorio = 0;
+		Double media = null;
+		
 		// interação sobre todas as transações
 		for (Transacao transacao : transacaoes) {
 
@@ -87,26 +91,29 @@ public class Principal {
 
 				// Executo a chamada da interface crédito, passando o valor
 				novoValor = cartao.credito(transacao.getValor());
-
 			}
 
-			writer.append(meuEnum.getNome())
-					.append(";")
-					.append(transacao.getOperacao().toString())
-					.append(";")
-					.append(format.format(novoValor))
-					.append(";")
-					.append(transacao.getNomeCliente());
+			writer.append(meuEnum.getNome()).append(";").append(transacao.getOperacao().toString()).append(";")
+					.append(format.format(novoValor)).append(";").append(transacao.getNomeCliente());
 
 			writer.newLine();
+			somatorio = somatorio + transacao.getValor();
+			media = somatorio/transacao.getValor();
+			
+		
 		}
 
+		System.out.println("a soma de todos saldos é: " + somatorio);
+		System.out.println("a média de todos saldos é: "+ media);
+		
+		
+		
 		writer.flush();
 		writer.close();
 	}
 
 	private List<String> lerArquivo() throws IOException {
-		InputStream inputStream = new FileInputStream("C:/Users/instrutor/transacoes.txt");
+		InputStream inputStream = new FileInputStream("C:\\Users\\aluno06sala04\\Downloads\\transacoes.txt");
 
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -123,4 +130,5 @@ public class Principal {
 
 		return minhasLinhas;
 	}
+
 }
