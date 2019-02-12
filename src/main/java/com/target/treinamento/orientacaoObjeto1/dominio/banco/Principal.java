@@ -35,6 +35,17 @@ public class Principal {
 			e.printStackTrace();
 		}
 
+		MeuDado<String> meuDado = new MeuDado<String>();
+
+		meuDado.setMinhaClasse("Essa classe aqui galera!");
+		meuDado.setNomeDaClasse("MundoJava");
+
+		System.out.println(meuDado.getMinhaClasse() + ":" + meuDado.getNomeDaClasse());
+
+		MeuDado<Double> meuDado2 = new MeuDado<Double>();
+		meuDado2.setMinhaClasse(56.4);
+		System.out.println(meuDado.getMinhaClasse() + ":" + meuDado2.getMinhaClasse());
+
 	}
 
 	private void inicializa() throws IOException {
@@ -69,7 +80,7 @@ public class Principal {
 
 		double somatorio = 0;
 		Double media = null;
-		
+
 		// interação sobre todas as transações
 		for (Transacao transacao : transacaoes) {
 
@@ -98,16 +109,19 @@ public class Principal {
 
 			writer.newLine();
 			somatorio = somatorio + transacao.getValor();
-			media = somatorio/transacao.getValor();
-			
-		
+			media = somatorio / transacao.getValor();
+
+			// trocando e colocando a ordem dos nomes.
+			int pos = transacao.getNomeCliente().indexOf(" ");
+			String inicioNome = transacao.getNomeCliente().substring(0, pos);
+			String outraParteDoNome = transacao.getNomeCliente().substring(pos + 1);
+
+			System.out.println(outraParteDoNome + "," + inicioNome);
 		}
 
 		System.out.println("a soma de todos saldos é: " + somatorio);
-		System.out.println("a média de todos saldos é: "+ media);
-		
-		
-		
+		System.out.println("a média de todos saldos é: " + media);
+
 		writer.flush();
 		writer.close();
 	}
@@ -129,6 +143,23 @@ public class Principal {
 		}
 
 		return minhasLinhas;
+
+		
 	}
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
