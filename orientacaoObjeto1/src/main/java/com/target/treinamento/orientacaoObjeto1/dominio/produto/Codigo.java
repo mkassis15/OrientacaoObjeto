@@ -9,11 +9,6 @@ public class Codigo<T> {
 		this.identificador = identificador;
 	}
 
-	@Override
-	public String toString() {
-		return "Codigo [identificador=" + identificador + "]";
-	}
-
 	public T getIdentificador() {
 		return identificador;
 	}
@@ -22,4 +17,13 @@ public class Codigo<T> {
 		this.identificador = identificador;
 	}
 
+	@Override
+	public String toString() {
+		return "Codigo [identificador=" + identificador + "]";
+	}
+
+	@Override
+	public boolean equals(Object arg0) {
+		return identificador.equals(arg0);
+	}
 }

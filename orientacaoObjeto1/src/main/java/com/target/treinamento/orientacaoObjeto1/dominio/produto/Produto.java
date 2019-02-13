@@ -6,16 +6,17 @@ public class Produto {
 	private String descricao;
 	private Integer quantidade;
 
+	public Produto(String descricao, Integer quantidade) {
+		super();
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+	}
+
 	public Produto(Codigo codigo, String descricao, Integer quantidade) {
 		super();
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
-	}
-
-	@Override
-	public String toString() {
-		return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", quantidade=" + quantidade + "]";
 	}
 
 	public Codigo getCodigo() {
@@ -42,4 +43,8 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
+	@Override
+	public String toString() {
+		return "Produto [codigo=" + codigo + ", descricao=" + descricao + ", quantidade=" + quantidade + "]";
+	}
 }
