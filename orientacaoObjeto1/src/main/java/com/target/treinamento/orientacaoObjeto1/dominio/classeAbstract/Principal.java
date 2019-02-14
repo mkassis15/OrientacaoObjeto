@@ -12,6 +12,13 @@ public class Principal {
 	private void inicializa() {
 
 		ControleBonificacao controleBonificacao = new ControleBonificacao();
+		
+		Gerente ger = new Gerente();
+		Programador prog = new Programador();
+		Diretor dir = new Diretor();
+		
+		
+		
 		controleBonificacao.registra(new Gerente());
 
 	}
