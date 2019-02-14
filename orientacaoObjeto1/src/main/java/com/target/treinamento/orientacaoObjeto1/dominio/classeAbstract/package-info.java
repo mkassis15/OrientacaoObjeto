@@ -1,0 +1,1 @@
+package com.target.treinamento.orientacaoObjeto1.dominio.classeAbstract;
