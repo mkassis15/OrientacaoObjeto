@@ -14,8 +14,8 @@ public class HelloWorldController {
 
 	}
 
-	@GetMapping(path = {"/algoDiferente-obj/{var}"})
-	public HelloWorld meuHelloWorldObj(@RequestParam("p") String p, @PathVariable String var) {
+	@GetMapping(path = { "/algoDiferente-obj", "/algoDiferente-obj/{var}" })
+	public HelloWorld meuHelloWorldObj(@RequestParam("p") String p, @PathVariable(required=false) String var) {
 		HelloWorld hw = new HelloWorld();
 		hw.setMensagem(p);
 		hw.setValor(500.0);
